@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV - Nguyễn Thế Anh</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f2fe, #fef9c3);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Hiệu ứng fade-in khi cuộn */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Ảnh avatar */
+    .profile-img {
+      width: 160px; height: 160px; object-fit: cover;
+      border-radius: 50%; border: 4px solid #0d6efd;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    /* Tiêu đề section */
+    .section-title {
+      font-size: 1.3rem; font-weight: bold;
+      border-bottom: 2px solid #333; margin-bottom: 15px; padding-bottom: 5px;
+      text-transform: uppercase; position: relative; display: inline-block;
+    }
+    .section-title::after {
+      content: ''; display: block; width: 0; height: 3px;
+      background: #0d6efd; transition: width 0.4s ease; margin-top: 5px;
+    }
+    .section-title:hover::after { width: 100%; }
+
+    /* Card */
+    .card, .cv-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover, .cv-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Icon hover */
+    p i {
+      transition: color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    p i:hover {
+      color: #0d6efd;
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    /* List hover */
+    ul li {
+      transition: transform 0.25s ease, background 0.25s ease;
+      padding: 6px 8px; border-radius: 6px;
+    }
+    ul li:hover {
+      background: rgba(13, 110, 253, 0.08);
+      transform: translateX(5px);
+    }
+    ul li i {
+      transition: transform 0.3s ease;
+    }
+    ul li:hover i {
+      transform: rotate(15deg) scale(1.2);
+      color: #198754;
+    }
+
+    /* Hiệu ứng ghost khi kéo thả */
+    .sortable-ghost {
+      opacity: 0.5;
+      background: #dbeafe;
+    }
+
+    /* Hiệu ứng highlight khi di chuột vào section */
+    .card:hover .section-title {
+      color: #0d6efd;
+      letter-spacing: 1px;
+    }
+
+    /* Button scroll top */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+    #scrollTopBtn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Language Switch Button */
+    #langSwitchBtn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background: #198754;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    #langSwitchBtn:hover {
+      background: #157347;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    #langSwitchBtn i {
+      margin-right: 5px;
+    }
+
+    /* Contact Links */
+    .contact-link {
+      transition: all 0.3s ease;
+      padding: 2px 6px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .contact-link:hover {
+      color: #0d6efd !important;
+      background: rgba(13, 110, 253, 0.1);
+      transform: translateY(-1px);
+      text-decoration: none !important;
+    }
+    .contact-link:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switch Button -->
+  <button id="langSwitchBtn">
+    <i class="fas fa-globe"></i>
+    <span id="langText">EN</span>
+  </button>
+
+  <div class="container py-5">
+    <!-- Header -->
+    <div class="text-center mb-5 fade-in">
+      <h1 class="fw-bold" data-key="name">NGUYỄN THẾ ANH</h1>
+      <p class="text-muted" data-key="title">WEB DEVELOPER</p>
+      <p>
+        <i class="fas fa-phone"></i> <a href="tel:+84963978591" class="text-decoration-none text-dark contact-link">0963978591</a> &nbsp;
+        <i class="fas fa-envelope"></i> <a href="mailto:ta1782001@gmail.com" class="text-decoration-none text-dark contact-link">ta1782001@gmail.com</a> &nbsp;
+        <i class="fas fa-map-marker-alt"></i> <span data-key="location">Thanh Xuân Bắc - Hà Nội</span>
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left Column -->
+      <div class="col-md-4 fade-in">
+        <div class="sortable">
+          <div class="card p-3 mb-4">
+            <h5 class="section-title" data-key="skills">Kỹ năng</h5>
+            <ul class="list-unstyled" data-key="skillsList">
+              <li><i class="fas fa-check-circle text-success"></i> Thành thạo <strong>Laravel, PHP</strong> trong việc phát triển hệ thống quản trị và API backend.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Hiểu sâu <strong>HTML, CSS, JavaScript</strong> và các framework frontend như <strong>Vue.js, ReactJS</strong>, có khả năng xây dựng giao diện UI/UX thân thiện và responsive.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Kinh nghiệm phát triển <strong>ứng dụng di động</strong> bằng React Native và Java.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Làm việc tốt với <strong>MySQL</strong>, thiết kế CSDL, tối ưu truy vấn và bảo mật dữ liệu.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Hiểu và sử dụng <strong>Git/GitHub/GitLab</strong>, nắm rõ Git Flow, CI/CD pipelines.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Có kiến thức về triển khai hệ thống trên <strong>AWS, Docker</strong>.</li>
+              <li><i class="fas fa-check-circle text-success"></i> Kỹ năng mềm: giao tiếp, làm việc nhóm Agile/Scrum, code review, mentoring thực tập sinh.</li>
+            </ul>
+          </div>
+
+          <div class="card p-3 mb-4">
+            <h5 class="section-title" data-key="education">Học vấn</h5>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h6 class="fw-bold mb-0" data-key="schoolName">Cao đẳng Bách Khoa</h6>
+                <p class="mb-1" data-key="major">Công nghệ thông tin</p>
+                <small class="text-muted" data-key="educationDesc">Hoàn thành tốt chương trình học, tích cực tham gia các dự án thực hành và nghiên cứu công nghệ mới.</small>
+              </div>
+              <div>
+                <small class="text-muted">08/2019 - 08/2022</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-8 fade-in">
+        <div class="sortable">
+          <!-- Giới thiệu -->
+          <div class="card p-3 mb-4">
+            <h5 class="section-title" data-key="about">Giới thiệu</h5>
+            <div data-key="aboutContent">
+              <p>Tôi là một lập trình viên Web với hơn 3 năm kinh nghiệm trong phát triển cả backend và frontend. Tôi đam mê công nghệ, đặc biệt là xây dựng các hệ thống quản lý doanh nghiệp, ứng dụng web và di động có tính ổn định và khả năng mở rộng cao. </p>
+              <p>Tôi đã tham gia nhiều dự án cho khách hàng Nhật Bản, Singapore và Việt Nam, qua đó tích lũy được kỹ năng làm việc nhóm, giao tiếp với khách hàng, phân tích yêu cầu và đưa ra giải pháp kỹ thuật phù hợp. Tôi luôn đặt mục tiêu tối ưu trải nghiệm người dùng và hiệu suất hệ thống.</p>
+              <p>Mục tiêu nghề nghiệp của tôi là trở thành một <strong>Fullstack Developer</strong>, có khả năng đảm nhận vai trò quan trọng trong các dự án lớn, đồng thời học hỏi và ứng dụng công nghệ mới để nâng cao giá trị sản phẩm.</p>
+            </div>
+          </div>
+
+          <!-- Dự án nổi bật -->
+          <div class="card p-3 mb-4">
+            <h5 class="section-title" data-key="projects">Dự án nổi bật</h5>
+
+            <!-- Project 1 Template -->
+            <div class="mb-4 border-start border-primary border-3 ps-3" data-key="project1">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-primary" data-key="project1Name">[Tên dự án 1]</h6>
+                <small class="text-muted" data-key="project1Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project1Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project1ClientLabel">Khách hàng:</strong> <span data-key="project1Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project1TypeLabel">Loại dự án:</strong> <span data-key="project1Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project1DescLabel">Mô tả:</strong></p>
+              <div data-key="project1Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project1TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project1Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project1TechLabel">Công nghệ sử dụng:</strong> <span data-key="project1Tech">[Laravel, Vue.js, MySQL, etc.]</span></p>
+              <p><strong data-key="project1ResultLabel">Kết quả:</strong> <span data-key="project1Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 2 Template -->
+            <div class="mb-4 border-start border-success border-3 ps-3" data-key="project2">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-success" data-key="project2Name">[Tên dự án 2]</h6>
+                <small class="text-muted" data-key="project2Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project2Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project2ClientLabel">Khách hàng:</strong> <span data-key="project2Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project2TypeLabel">Loại dự án:</strong> <span data-key="project2Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project2DescLabel">Mô tả:</strong></p>
+              <div data-key="project2Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project2TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project2Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project2TechLabel">Công nghệ sử dụng:</strong> <span data-key="project2Tech">[React Native, Laravel, MySQL, etc.]</span></p>
+              <p><strong data-key="project2ResultLabel">Kết quả:</strong> <span data-key="project2Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 3 Template -->
+            <div class="mb-4 border-start border-warning border-3 ps-3" data-key="project3">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-warning" data-key="project3Name">[Tên dự án 3]</h6>
+                <small class="text-muted" data-key="project3Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project3Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project3ClientLabel">Khách hàng:</strong> <span data-key="project3Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project3TypeLabel">Loại dự án:</strong> <span data-key="project3Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project3DescLabel">Mô tả:</strong></p>
+              <div data-key="project3Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project3TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project3Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project3TechLabel">Công nghệ sử dụng:</strong> <span data-key="project3Tech">[Vue 3, InertiaJS, Laravel, etc.]</span></p>
+              <p><strong data-key="project3ResultLabel">Kết quả:</strong> <span data-key="project3Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 4 Template -->
+            <div class="mb-4 border-start border-info border-3 ps-3" data-key="project4">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-info" data-key="project4Name">[Tên dự án 4]</h6>
+                <small class="text-muted" data-key="project4Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project4Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project4ClientLabel">Khách hàng:</strong> <span data-key="project4Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project4TypeLabel">Loại dự án:</strong> <span data-key="project4Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project4DescLabel">Mô tả:</strong></p>
+              <div data-key="project4Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project4TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project4Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project4TechLabel">Công nghệ sử dụng:</strong> <span data-key="project4Tech">[Technologies]</span></p>
+              <p><strong data-key="project4ResultLabel">Kết quả:</strong> <span data-key="project4Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 5 Template -->
+            <div class="mb-4 border-start border-secondary border-3 ps-3" data-key="project5">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-secondary" data-key="project5Name">[Tên dự án 5]</h6>
+                <small class="text-muted" data-key="project5Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project5Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project5ClientLabel">Khách hàng:</strong> <span data-key="project5Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project5TypeLabel">Loại dự án:</strong> <span data-key="project5Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project5DescLabel">Mô tả:</strong></p>
+              <div data-key="project5Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project5TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project5Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project5TechLabel">Công nghệ sử dụng:</strong> <span data-key="project5Tech">[Technologies]</span></p>
+              <p><strong data-key="project5ResultLabel">Kết quả:</strong> <span data-key="project5Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 6 Template -->
+            <div class="mb-4 border-start border-dark border-3 ps-3" data-key="project6">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-dark" data-key="project6Name">[Tên dự án 6]</h6>
+                <small class="text-muted" data-key="project6Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project6Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project6ClientLabel">Khách hàng:</strong> <span data-key="project6Client">[Tên khách hàng/Công ty]</span></p>
+              <p class="mb-2"><strong data-key="project6TypeLabel">Loại dự án:</strong> <span data-key="project6Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project6DescLabel">Mô tả:</strong></p>
+              <div data-key="project6Desc">
+                <p>[Mô tả chi tiết về dự án, mục tiêu, phạm vi công việc]</p>
+              </div>
+              <p><strong data-key="project6TasksLabel">Công việc thực hiện:</strong></p>
+              <ul data-key="project6Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project6TechLabel">Công nghệ sử dụng:</strong> <span data-key="project6Tech">[Technologies]</span></p>
+              <p><strong data-key="project6ResultLabel">Kết quả:</strong> <span data-key="project6Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 7 Template -->
+            <div class="mb-4 border-start border-danger border-3 ps-3" data-key="project7">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-danger" data-key="project7Name">[Tên dự án 7]</h6>
+                <small class="text-muted" data-key="project7Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project7Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project7ClientLabel">Link:</strong> <span data-key="project7Client">[Link]</span></p>
+              <p class="mb-2"><strong data-key="project7TypeLabel">Loại dự án:</strong> <span data-key="project7Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project7DescLabel">Mô tả:</strong></p>
+              <div data-key="project7Desc">
+                <p>[Mô tả chi tiết về dự án]</p>
+              </div>
+              <p><strong data-key="project7TasksLabel">Đóng góp:</strong></p>
+              <ul data-key="project7Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project7TechLabel">Công nghệ:</strong> <span data-key="project7Tech">[Technologies]</span></p>
+              <p><strong data-key="project7ResultLabel">Kết quả:</strong> <span data-key="project7Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 8 Template -->
+            <div class="mb-4 border-start border-primary border-3 ps-3" data-key="project8">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-primary" data-key="project8Name">[Tên dự án 8]</h6>
+                <small class="text-muted" data-key="project8Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project8Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project8ClientLabel">Link:</strong> <span data-key="project8Client">[Link]</span></p>
+              <p class="mb-2"><strong data-key="project8TypeLabel">Loại dự án:</strong> <span data-key="project8Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project8DescLabel">Mô tả:</strong></p>
+              <div data-key="project8Desc">
+                <p>[Mô tả chi tiết về dự án]</p>
+              </div>
+              <p><strong data-key="project8TasksLabel">Đóng góp:</strong></p>
+              <ul data-key="project8Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project8TechLabel">Công nghệ:</strong> <span data-key="project8Tech">[Technologies]</span></p>
+              <p><strong data-key="project8ResultLabel">Kết quả:</strong> <span data-key="project8Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 9 Template -->
+            <div class="mb-4 border-start border-success border-3 ps-3" data-key="project9">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-success" data-key="project9Name">[Tên dự án 9]</h6>
+                <small class="text-muted" data-key="project9Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project9Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project9ClientLabel">Link:</strong> <span data-key="project9Client">[Link]</span></p>
+              <p class="mb-2"><strong data-key="project9TypeLabel">Loại dự án:</strong> <span data-key="project9Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project9DescLabel">Mô tả:</strong></p>
+              <div data-key="project9Desc">
+                <p>[Mô tả chi tiết về dự án]</p>
+              </div>
+              <p><strong data-key="project9TasksLabel">Đóng góp:</strong></p>
+              <ul data-key="project9Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project9TechLabel">Công nghệ:</strong> <span data-key="project9Tech">[Technologies]</span></p>
+              <p><strong data-key="project9ResultLabel">Kết quả:</strong> <span data-key="project9Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Project 10 Template -->
+            <div class="mb-4 border-start border-warning border-3 ps-3" data-key="project10">
+              <div class="d-flex justify-content-between mb-2">
+                <h6 class="fw-bold mb-0 text-warning" data-key="project10Name">[Tên dự án 10]</h6>
+                <small class="text-muted" data-key="project10Time">[Thời gian]</small>
+              </div>
+              <p class="fw-semibold mb-1" data-key="project10Role">[Vai trò trong dự án]</p>
+              <p class="mb-2"><strong data-key="project10ClientLabel">Link:</strong> <span data-key="project10Client">[Link]</span></p>
+              <p class="mb-2"><strong data-key="project10TypeLabel">Loại dự án:</strong> <span data-key="project10Type">[Web App/Mobile App/System]</span></p>
+              <p><strong data-key="project10DescLabel">Mô tả:</strong></p>
+              <div data-key="project10Desc">
+                <p>[Mô tả chi tiết về dự án]</p>
+              </div>
+              <p><strong data-key="project10TasksLabel">Đóng góp:</strong></p>
+              <ul data-key="project10Tasks">
+                <li>[Nhiệm vụ 1]</li>
+                <li>[Nhiệm vụ 2]</li>
+                <li>[Nhiệm vụ 3]</li>
+              </ul>
+              <p><strong data-key="project10TechLabel">Công nghệ:</strong> <span data-key="project10Tech">[Technologies]</span></p>
+              <p><strong data-key="project10ResultLabel">Kết quả:</strong> <span data-key="project10Result">[Thành tựu đạt được]</span></p>
+            </div>
+
+            <!-- Add more projects as needed -->
+            <div class="text-center mt-3">
+              <small class="text-muted" data-key="projectNote">* Có thể bổ sung thêm các dự án khác theo yêu cầu</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nút scroll top -->
+  <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- SortableJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script>
+    // Language data
+    const translations = {
+      vi: {
+        name: "NGUYỄN THẾ ANH",
+        title: "WEB DEVELOPER",
+        location: "Thanh Xuân Bắc - Hà Nội",
+        skills: "Kỹ năng",
+        skillsList: `
+          <li><i class="fas fa-check-circle text-success"></i> Thành thạo <strong>Laravel, PHP</strong> trong việc phát triển hệ thống quản trị và API backend.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Hiểu sâu <strong>HTML, CSS, JavaScript</strong> và các framework frontend như <strong>Vue.js, ReactJS</strong>, có khả năng xây dựng giao diện UI/UX thân thiện và responsive.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Kinh nghiệm phát triển <strong>ứng dụng di động</strong> bằng React Native và Java.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Làm việc tốt với <strong>MySQL</strong>, thiết kế CSDL, tối ưu truy vấn và bảo mật dữ liệu.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Hiểu và sử dụng <strong>Git/GitHub/GitLab</strong>, nắm rõ Git Flow, CI/CD pipelines.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Có kiến thức về triển khai hệ thống trên <strong>AWS, Docker</strong>.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Kỹ năng mềm: giao tiếp, làm việc nhóm Agile/Scrum, code review, mentoring thực tập sinh.</li>
+        `,
+        education: "Học vấn",
+        schoolName: "Cao đẳng Bách Khoa",
+        major: "Công nghệ thông tin",
+        educationDesc: "Hoàn thành tốt chương trình học, tích cực tham gia các dự án thực hành và nghiên cứu công nghệ mới.",
+        about: "Giới thiệu",
+        aboutContent: `
+          <p>Tôi là một lập trình viên Web với hơn 3 năm kinh nghiệm trong phát triển cả backend và frontend. Tôi đam mê công nghệ, đặc biệt là xây dựng các hệ thống quản lý doanh nghiệp, ứng dụng web và di động có tính ổn định và khả năng mở rộng cao. </p>
+          <p>Tôi đã tham gia nhiều dự án cho khách hàng Nhật Bản, Singapore và Việt Nam, qua đó tích lũy được kỹ năng làm việc nhóm, giao tiếp với khách hàng, phân tích yêu cầu và đưa ra giải pháp kỹ thuật phù hợp. Tôi luôn đặt mục tiêu tối ưu trải nghiệm người dùng và hiệu suất hệ thống.</p>
+          <p>Mục tiêu nghề nghiệp của tôi là trở thành một <strong>Fullstack Developer</strong>, có khả năng đảm nhận vai trò quan trọng trong các dự án lớn, đồng thời học hỏi và ứng dụng công nghệ mới để nâng cao giá trị sản phẩm.</p>
+        `,
+        projects: "Dự án đã thực hiện",
+        // Project Details Templates - Sắp xếp theo thời gian từ mới nhất
+        project1Name: "Dự án S-Office",
+        project1Time: "07/2024 - Hiện tại",
+        project1Role: "Developer",
+        project1ClientLabel: "Khách hàng:",
+        project1Client: "Sconnect Vietnam",
+        project1TypeLabel: "Loại dự án:",
+        project1Type: "Enterprise Management System",
+        project1DescLabel: "Mô tả:",
+        project1Desc: `<p>Tham gia phát triển hệ thống quản lý nội bộ S-Office với các module quản lý nhân sự, tài sản, quy trình làm việc sử dụng kiến trúc hiện đại.</p>`,
+        project1TasksLabel: "Đóng góp:",
+        project1Tasks: `
+          <li>Tham gia phát triển các module quản lý nội bộ</li>
+          <li>Phối hợp cùng team để triển khai tính năng</li>
+          <li>Tối ưu hệ thống và cải thiện hiệu suất</li>
+        `,
+        project1TechLabel: "Công nghệ:",
+        project1Tech: "Laravel, Vue 3, InertiaJS, JavaScript",
+        project1ResultLabel: "Kết quả:",
+        project1Result: "Hệ thống hoạt động ổn định, đáp ứng tốt nhu cầu quản lý nội bộ",
+
+        project2Name: "Website ANEX",
+        project2Time: "05/2023 - 07/2024",
+        project2Role: "Backend Developer",
+        project2ClientLabel: "Link:",
+        project2Client: "https://anex.vn",
+        project2TypeLabel: "Loại dự án:",
+        project2Type: "Business Website",
+        project2DescLabel: "Mô tả:",
+        project2Desc: `<p>Phát triển backend và API cho website doanh nghiệp, tích hợp các package Laravel để tối ưu hiệu suất và bảo mật.</p>`,
+        project2TasksLabel: "Đóng góp:",
+        project2Tasks: `
+          <li>Phát triển backend và API</li>
+          <li>Hỗ trợ triển khai và bảo trì hệ thống</li>
+          <li>Tích hợp package Laravel</li>
+        `,
+        project2TechLabel: "Công nghệ:",
+        project2Tech: "Laravel, PHP, HTML, CSS, JavaScript, package tích hợp Laravel",
+        project2ResultLabel: "Kết quả:",
+        project2Result: "Website hoạt động ổn định, đáp ứng tốt yêu cầu khách hàng",
+
+        project3Name: "Website EVS Vietnam",
+        project3Time: "05/2023 - 07/2024",
+        project3Role: "Backend Developer",
+        project3ClientLabel: "Link:",
+        project3Client: "https://evsavietnam.vn",
+        project3TypeLabel: "Loại dự án:",
+        project3Type: "Business Website",
+        project3DescLabel: "Mô tả:",
+        project3Desc: `<p>Phát triển backend và API cho website doanh nghiệp, tối ưu hiệu suất và đảm bảo bảo mật hệ thống.</p>`,
+        project3TasksLabel: "Đóng góp:",
+        project3Tasks: `
+          <li>Phát triển backend và API</li>
+          <li>Hỗ trợ triển khai và bảo trì hệ thống</li>
+          <li>Tích hợp package Laravel</li>
+        `,
+        project3TechLabel: "Công nghệ:",
+        project3Tech: "Laravel, PHP, HTML, CSS, JavaScript, package tích hợp Laravel",
+        project3ResultLabel: "Kết quả:",
+        project3Result: "Website hoạt động ổn định, đáp ứng tốt yêu cầu khách hàng",
+
+        project4Name: "Website ME Cosmetics",
+        project4Time: "05/2023 - 07/2024",
+        project4Role: "Backend Developer",
+        project4ClientLabel: "Link:",
+        project4Client: "https://mecosmeticsvn.com",
+        project4TypeLabel: "Loại dự án:",
+        project4Type: "E-commerce Website",
+        project4DescLabel: "Mô tả:",
+        project4Desc: `<p>Phát triển backend cho website thương mại điện tử mỹ phẩm, xử lý logic nghiệp vụ và tích hợp thanh toán.</p>`,
+        project4TasksLabel: "Đóng góp:",
+        project4Tasks: `
+          <li>Phát triển backend và API</li>
+          <li>Hỗ trợ triển khai và bảo trì hệ thống</li>
+          <li>Tích hợp package Laravel</li>
+        `,
+        project4TechLabel: "Công nghệ:",
+        project4Tech: "Laravel, PHP, HTML, CSS, JavaScript, package tích hợp Laravel",
+        project4ResultLabel: "Kết quả:",
+        project4Result: "Website hoạt động ổn định, hỗ trợ tốt hoạt động kinh doanh",
+
+        project5Name: "Website Edu Hanh",
+        project5Time: "05/2023 - 07/2024",
+        project5Role: "Backend Developer",
+        project5ClientLabel: "Link:",
+        project5Client: "https://edu.hanh.net.vn",
+        project5TypeLabel: "Loại dự án:",
+        project5Type: "Education Website",
+        project5DescLabel: "Mô tả:",
+        project5Desc: `<p>Phát triển backend cho website giáo dục, xây dựng hệ thống quản lý khóa học và học viên.</p>`,
+        project5TasksLabel: "Đóng góp:",
+        project5Tasks: `
+          <li>Phát triển backend và API</li>
+          <li>Hỗ trợ triển khai và bảo trì hệ thống</li>
+          <li>Tích hợp package Laravel</li>
+        `,
+        project5TechLabel: "Công nghệ:",
+        project5Tech: "Laravel, PHP, HTML, CSS, JavaScript, package tích hợp Laravel",
+        project5ResultLabel: "Kết quả:",
+        project5Result: "Website hoạt động ổn định, hỗ trợ tốt hoạt động giáo dục",
+
+        project6Name: "Hệ thống Edge Education",
+        project6Time: "05/2023 - 07/2024",
+        project6Role: "Developer (FE & BE)",
+        project6ClientLabel: "Link:",
+        project6Client: "https://edge.edu.a2ztech.vn",
+        project6TypeLabel: "Loại dự án:",
+        project6Type: "Education Management System",
+        project6DescLabel: "Mô tả:",
+        project6Desc: `<p>Tự triển khai và phát triển toàn bộ hệ thống quản lý giáo dục cho khách hàng Nhật Bản với yêu cầu cao về độ chính xác và bảo mật.</p>`,
+        project6TasksLabel: "Đóng góp:",
+        project6Tasks: `
+          <li>Tự triển khai và phát triển toàn bộ hệ thống web quản lý</li>
+          <li>Tối ưu cơ sở dữ liệu và bảo mật</li>
+          <li>Phát triển frontend và backend hoàn chỉnh</li>
+        `,
+        project6TechLabel: "Công nghệ:",
+        project6Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project6ResultLabel: "Kết quả:",
+        project6Result: "Hệ thống hoạt động ổn định, đáp ứng tốt yêu cầu khách hàng Nhật",
+
+        project7Name: "Hệ thống ASUQAA",
+        project7Time: "05/2023 - 07/2024",
+        project7Role: "Developer (FE & BE)",
+        project7ClientLabel: "Link:",
+        project7Client: "https://asuqaa.system.a2ztech.vn",
+        project7TypeLabel: "Loại dự án:",
+        project7Type: "Q&A Management System",
+        project7DescLabel: "Mô tả:",
+        project7Desc: `<p>Tự triển khai và phát triển toàn bộ hệ thống Q&A cho khách hàng Nhật Bản, hỗ trợ quản lý câu hỏi và trả lời hiệu quả.</p>`,
+        project7TasksLabel: "Đóng góp:",
+        project7Tasks: `
+          <li>Tự triển khai và phát triển toàn bộ hệ thống web quản lý</li>
+          <li>Tối ưu cơ sở dữ liệu và bảo mật</li>
+          <li>Phát triển frontend và backend hoàn chỉnh</li>
+        `,
+        project7TechLabel: "Công nghệ:",
+        project7Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project7ResultLabel: "Kết quả:",
+        project7Result: "Hệ thống hoạt động ổn định, đáp ứng tốt yêu cầu khách hàng Nhật",
+
+        project8Name: "Hệ thống Zaikokanri",
+        project8Time: "05/2023 - 07/2024",
+        project8Role: "Developer (FE & BE)",
+        project8ClientLabel: "Link:",
+        project8Client: "https://zaikokanri.system.a2ztech.vn",
+        project8TypeLabel: "Loại dự án:",
+        project8Type: "Inventory Management System",
+        project8DescLabel: "Mô tả:",
+        project8Desc: `<p>Tự triển khai và phát triển toàn bộ hệ thống quản lý kho cho khách hàng Nhật Bản, tối ưu quy trình quản lý hàng tồn kho.</p>`,
+        project8TasksLabel: "Đóng góp:",
+        project8Tasks: `
+          <li>Tự triển khai và phát triển toàn bộ hệ thống web quản lý</li>
+          <li>Tối ưu cơ sở dữ liệu và bảo mật</li>
+          <li>Phát triển frontend và backend hoàn chỉnh</li>
+        `,
+        project8TechLabel: "Công nghệ:",
+        project8Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project8ResultLabel: "Kết quả:",
+        project8Result: "Hệ thống hoạt động ổn định, đáp ứng tốt yêu cầu khách hàng Nhật",
+
+        project9Name: "Ứng dụng Mobile App Start & Now",
+        project9Time: "05/2022 - 04/2023",
+        project9Role: "Mobile Developer (Front-end)",
+        project9ClientLabel: "Khách hàng:",
+        project9Client: "Công ty MUMESOFT",
+        project9TypeLabel: "Loại dự án:",
+        project9Type: "Mobile Applications",
+        project9DescLabel: "Mô tả:",
+        project9Desc: `<p>Phát triển các ứng dụng mobile App Start và Now cho thị trường Nhật Bản với giao diện UI/UX mượt mà và hiệu suất cao.</p>`,
+        project9TasksLabel: "Đóng góp:",
+        project9Tasks: `
+          <li>Phát triển ứng dụng mobile, xây dựng UI/UX mượt mà</li>
+          <li>Triển khai các tính năng core và tối ưu hiệu suất</li>
+          <li>Testing và tối ưu trải nghiệm người dùng</li>
+        `,
+        project9TechLabel: "Công nghệ:",
+        project9Tech: "React Native, ReactJS, Java",
+        project9ResultLabel: "Kết quả:",
+        project9Result: "Hoàn thành 2 ứng dụng mobile chất lượng cao cho thị trường Nhật",
+
+        project10Name: "Website FindTheLoan",
+        project10Time: "12/2021 - 05/2022",
+        project10Role: "Developer (FE & BE)",
+        project10ClientLabel: "Link:",
+        project10Client: "https://findtheloan.com",
+        project10TypeLabel: "Loại dự án:",
+        project10Type: "Financial Web Platform",
+        project10DescLabel: "Mô tả:",
+        project10Desc: `<p>Phát triển website tài chính FindTheLoan - nền tảng kết nối người dùng với các dịch vụ tài chính, hỗ trợ tìm kiếm và so sánh sản phẩm tài chính.</p>`,
+        project10TasksLabel: "Đóng góp:",
+        project10Tasks: `
+          <li>Phát triển và tối ưu hệ thống web</li>
+          <li>Xây dựng giao diện người dùng và xử lý logic backend</li>
+          <li>Tối ưu hiệu suất và bảo mật hệ thống</li>
+        `,
+        project10TechLabel: "Công nghệ:",
+        project10Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project10ResultLabel: "Kết quả:",
+        project10Result: "Website hoạt động ổn định, đáp ứng tốt nhu cầu người dùng",
+
+        projectNote: "* Tổng cộng 10 dự án đã hoàn thành"
+      },
+      en: {
+        name: "NGUYEN THE ANH",
+        title: "WEB DEVELOPER",
+        location: "Thanh Xuan Bac - Hanoi",
+        skills: "Skills",
+        skillsList: `
+          <li><i class="fas fa-check-circle text-success"></i> Proficient in <strong>Laravel, PHP</strong> for developing management systems and backend APIs.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Deep understanding of <strong>HTML, CSS, JavaScript</strong> and frontend frameworks like <strong>Vue.js, ReactJS</strong>, capable of building user-friendly and responsive UI/UX interfaces.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Experience in developing <strong>mobile applications</strong> using React Native and Java.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Working well with <strong>MySQL</strong>, database design, query optimization and data security.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Understanding and using <strong>Git/GitHub/GitLab</strong>, familiar with Git Flow, CI/CD pipelines.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Knowledge of system deployment on <strong>AWS, Docker</strong>.</li>
+          <li><i class="fas fa-check-circle text-success"></i> Soft skills: communication, Agile/Scrum teamwork, code review, mentoring interns.</li>
+        `,
+        education: "Education",
+        schoolName: "Bach Khoa College",
+        major: "Information Technology",
+        educationDesc: "Successfully completed the curriculum, actively participated in practical projects and researched new technologies.",
+        about: "About Me",
+        aboutContent: `
+          <p>I am a Web Developer with over 3 years of experience in both backend and frontend development. I am passionate about technology, especially building enterprise management systems, web and mobile applications with high stability and scalability.</p>
+          <p>I have participated in many projects for clients in Japan, Singapore and Vietnam, thereby accumulating teamwork skills, customer communication, requirement analysis and providing appropriate technical solutions. I always aim to optimize user experience and system performance.</p>
+          <p>My career goal is to become a <strong>Fullstack Developer</strong>, capable of taking on important roles in large projects, while learning and applying new technologies to enhance product value.</p>
+        `,
+        projects: "Completed Projects",
+        // Project Details Templates - Sorted by timeline (newest first)
+        project1Name: "S-Office Project",
+        project1Time: "07/2024 - Present",
+        project1Role: "Developer",
+        project1ClientLabel: "Client:",
+        project1Client: "Sconnect Vietnam",
+        project1TypeLabel: "Project Type:",
+        project1Type: "Enterprise Management System",
+        project1DescLabel: "Description:",
+        project1Desc: `<p>Participated in developing S-Office internal management system with HR, asset, and workflow management modules using modern architecture.</p>`,
+        project1TasksLabel: "Contributions:",
+        project1Tasks: `
+          <li>Participated in developing internal management modules</li>
+          <li>Collaborated with team to deploy features</li>
+          <li>Optimized system and improved performance</li>
+        `,
+        project1TechLabel: "Technologies:",
+        project1Tech: "Laravel, Vue 3, InertiaJS, JavaScript",
+        project1ResultLabel: "Results:",
+        project1Result: "System operates stably, meeting internal management needs well",
+
+        project2Name: "ANEX Website",
+        project2Time: "05/2023 - 07/2024",
+        project2Role: "Backend Developer",
+        project2ClientLabel: "Link:",
+        project2Client: "https://anex.vn",
+        project2TypeLabel: "Project Type:",
+        project2Type: "Business Website",
+        project2DescLabel: "Description:",
+        project2Desc: `<p>Developed backend and API for business website, integrated Laravel packages to optimize performance and security.</p>`,
+        project2TasksLabel: "Contributions:",
+        project2Tasks: `
+          <li>Developed backend and API</li>
+          <li>Supported deployment and system maintenance</li>
+          <li>Integrated Laravel packages</li>
+        `,
+        project2TechLabel: "Technologies:",
+        project2Tech: "Laravel, PHP, HTML, CSS, JavaScript, Laravel packages",
+        project2ResultLabel: "Results:",
+        project2Result: "Website operates stably, meeting client requirements well",
+
+        project3Name: "EVS Vietnam Website",
+        project3Time: "05/2023 - 07/2024",
+        project3Role: "Backend Developer",
+        project3ClientLabel: "Link:",
+        project3Client: "https://evsavietnam.vn",
+        project3TypeLabel: "Project Type:",
+        project3Type: "Business Website",
+        project3DescLabel: "Description:",
+        project3Desc: `<p>Developed backend and API for business website, optimized performance and ensured system security.</p>`,
+        project3TasksLabel: "Contributions:",
+        project3Tasks: `
+          <li>Developed backend and API</li>
+          <li>Supported deployment and system maintenance</li>
+          <li>Integrated Laravel packages</li>
+        `,
+        project3TechLabel: "Technologies:",
+        project3Tech: "Laravel, PHP, HTML, CSS, JavaScript, Laravel packages",
+        project3ResultLabel: "Results:",
+        project3Result: "Website operates stably, meeting client requirements well",
+
+        project4Name: "ME Cosmetics Website",
+        project4Time: "05/2023 - 07/2024",
+        project4Role: "Backend Developer",
+        project4ClientLabel: "Link:",
+        project4Client: "https://mecosmeticsvn.com",
+        project4TypeLabel: "Project Type:",
+        project4Type: "E-commerce Website",
+        project4DescLabel: "Description:",
+        project4Desc: `<p>Developed backend for cosmetics e-commerce website, handled business logic and integrated payment systems.</p>`,
+        project4TasksLabel: "Contributions:",
+        project4Tasks: `
+          <li>Developed backend and API</li>
+          <li>Supported deployment and system maintenance</li>
+          <li>Integrated Laravel packages</li>
+        `,
+        project4TechLabel: "Technologies:",
+        project4Tech: "Laravel, PHP, HTML, CSS, JavaScript, Laravel packages",
+        project4ResultLabel: "Results:",
+        project4Result: "Website operates stably, supporting business operations well",
+
+        project5Name: "Edu Hanh Website",
+        project5Time: "05/2023 - 07/2024",
+        project5Role: "Backend Developer",
+        project5ClientLabel: "Link:",
+        project5Client: "https://edu.hanh.net.vn",
+        project5TypeLabel: "Project Type:",
+        project5Type: "Education Website",
+        project5DescLabel: "Description:",
+        project5Desc: `<p>Developed backend for education website, built course and student management system.</p>`,
+        project5TasksLabel: "Contributions:",
+        project5Tasks: `
+          <li>Developed backend and API</li>
+          <li>Supported deployment and system maintenance</li>
+          <li>Integrated Laravel packages</li>
+        `,
+        project5TechLabel: "Technologies:",
+        project5Tech: "Laravel, PHP, HTML, CSS, JavaScript, Laravel packages",
+        project5ResultLabel: "Results:",
+        project5Result: "Website operates stably, supporting educational activities well",
+
+        project6Name: "Edge Education System",
+        project6Time: "05/2023 - 07/2024",
+        project6Role: "Developer (FE & BE)",
+        project6ClientLabel: "Link:",
+        project6Client: "https://edge.edu.a2ztech.vn",
+        project6TypeLabel: "Project Type:",
+        project6Type: "Education Management System",
+        project6DescLabel: "Description:",
+        project6Desc: `<p>Independently deployed and developed complete education management system for Japanese clients with high accuracy and security requirements.</p>`,
+        project6TasksLabel: "Contributions:",
+        project6Tasks: `
+          <li>Independently deployed and developed complete web management system</li>
+          <li>Optimized database and security</li>
+          <li>Developed complete frontend and backend</li>
+        `,
+        project6TechLabel: "Technologies:",
+        project6Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project6ResultLabel: "Results:",
+        project6Result: "System operates stably, meeting Japanese client requirements well",
+
+        project7Name: "ASUQAA System",
+        project7Time: "05/2023 - 07/2024",
+        project7Role: "Developer (FE & BE)",
+        project7ClientLabel: "Link:",
+        project7Client: "https://asuqaa.system.a2ztech.vn",
+        project7TypeLabel: "Project Type:",
+        project7Type: "Q&A Management System",
+        project7DescLabel: "Description:",
+        project7Desc: `<p>Independently deployed and developed complete Q&A system for Japanese clients, supporting efficient question and answer management.</p>`,
+        project7TasksLabel: "Contributions:",
+        project7Tasks: `
+          <li>Independently deployed and developed complete web management system</li>
+          <li>Optimized database and security</li>
+          <li>Developed complete frontend and backend</li>
+        `,
+        project7TechLabel: "Technologies:",
+        project7Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project7ResultLabel: "Results:",
+        project7Result: "System operates stably, meeting Japanese client requirements well",
+
+        project8Name: "Zaikokanri System",
+        project8Time: "05/2023 - 07/2024",
+        project8Role: "Developer (FE & BE)",
+        project8ClientLabel: "Link:",
+        project8Client: "https://zaikokanri.system.a2ztech.vn",
+        project8TypeLabel: "Project Type:",
+        project8Type: "Inventory Management System",
+        project8DescLabel: "Description:",
+        project8Desc: `<p>Independently deployed and developed complete inventory management system for Japanese clients, optimizing inventory management processes.</p>`,
+        project8TasksLabel: "Contributions:",
+        project8Tasks: `
+          <li>Independently deployed and developed complete web management system</li>
+          <li>Optimized database and security</li>
+          <li>Developed complete frontend and backend</li>
+        `,
+        project8TechLabel: "Technologies:",
+        project8Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project8ResultLabel: "Results:",
+        project8Result: "System operates stably, meeting Japanese client requirements well",
+
+        project9Name: "Mobile Apps Start & Now",
+        project9Time: "05/2022 - 04/2023",
+        project9Role: "Mobile Developer (Front-end)",
+        project9ClientLabel: "Client:",
+        project9Client: "MUMESOFT Company",
+        project9TypeLabel: "Project Type:",
+        project9Type: "Mobile Applications",
+        project9DescLabel: "Description:",
+        project9Desc: `<p>Developed mobile applications App Start and Now for Japanese market with smooth UI/UX and high performance.</p>`,
+        project9TasksLabel: "Contributions:",
+        project9Tasks: `
+          <li>Developed mobile applications, built smooth UI/UX</li>
+          <li>Deployed core features and optimized performance</li>
+          <li>Testing and optimized user experience</li>
+        `,
+        project9TechLabel: "Technologies:",
+        project9Tech: "React Native, ReactJS, Java",
+        project9ResultLabel: "Results:",
+        project9Result: "Completed 2 high-quality mobile applications for Japanese market",
+
+        project10Name: "FindTheLoan Website",
+        project10Time: "12/2021 - 05/2022",
+        project10Role: "Developer (FE & BE)",
+        project10ClientLabel: "Link:",
+        project10Client: "https://findtheloan.com",
+        project10TypeLabel: "Project Type:",
+        project10Type: "Financial Web Platform",
+        project10DescLabel: "Description:",
+        project10Desc: `<p>Developed FindTheLoan financial website - platform connecting users with financial services, supporting financial product search and comparison.</p>`,
+        project10TasksLabel: "Contributions:",
+        project10Tasks: `
+          <li>Developed and optimized web system</li>
+          <li>Built user interface and handled backend logic</li>
+          <li>Optimized performance and system security</li>
+        `,
+        project10TechLabel: "Technologies:",
+        project10Tech: "Laravel, PHP, HTML, CSS, JavaScript",
+        project10ResultLabel: "Results:",
+        project10Result: "Website operates stably, meeting user needs well",
+
+        projectNote: "* Total of 10 completed projects"
+      }
+    };
+
+    // Current language
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    // Language switch function
+    function switchLanguage() {
+      currentLang = currentLang === 'vi' ? 'en' : 'vi';
+      localStorage.setItem('language', currentLang);
+      
+      // Update language button text
+      document.getElementById('langText').textContent = currentLang === 'vi' ? 'EN' : 'VI';
+      
+      // Update document language
+      document.documentElement.lang = currentLang;
+      
+      // Update title
+      document.title = currentLang === 'vi' ? 'CV - Nguyễn Thế Anh' : 'CV - Nguyen The Anh';
+      
+      // Update all translatable elements
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[currentLang][key]) {
+          // Elements that need innerHTML (contain HTML tags)
+          if (key === 'skillsList' || key === 'aboutContent' || key.startsWith('tasks') || (key.startsWith('project') && (key.includes('Desc') || key.includes('Tasks')))) {
+            element.innerHTML = translations[currentLang][key];
+          } else {
+            element.textContent = translations[currentLang][key];
+          }
+        }
+      });
+    }
+
+    // Initialize language on page load
+    function initLanguage() {
+      document.getElementById('langText').textContent = currentLang === 'vi' ? 'EN' : 'VI';
+      document.documentElement.lang = currentLang;
+      document.title = currentLang === 'vi' ? 'CV - Nguyễn Thế Anh' : 'CV - Nguyen The Anh';
+      
+      // Apply current language translations
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[currentLang][key]) {
+          // Elements that need innerHTML (contain HTML tags)
+          if (key === 'skillsList' || key === 'aboutContent' || key.startsWith('tasks') || (key.startsWith('project') && (key.includes('Desc') || key.includes('Tasks')))) {
+            element.innerHTML = translations[currentLang][key];
+          } else {
+            element.textContent = translations[currentLang][key];
+          }
+        }
+      });
+    }
+
+    // Kéo thả
+    // document.querySelectorAll('.sortable').forEach(el => {
+    //   new Sortable(el, {
+    //     animation: 150,
+    //     ghostClass: 'sortable-ghost'
+    //   });
+    // });
+
+    // Fade-in khi cuộn
+    const fadeElems = document.querySelectorAll('.fade-in');
+    const onScroll = () => {
+      fadeElems.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
+
+    // Scroll top button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    });
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Language switch button event
+    document.getElementById('langSwitchBtn').addEventListener('click', switchLanguage);
+
+    // Initialize language when page loads
+    window.addEventListener('load', initLanguage);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
